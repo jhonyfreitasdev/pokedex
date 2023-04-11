@@ -38,21 +38,18 @@ export const List = () => {
     return (
 
         <Main>
-            {
-                pokedex.pokemons !== "" ?
-                <ul>
-                    {
-                        pokedex.pokemons.map((item, index) => {
-                            return (
-                                <li key={index}>
-                                    <img src={item.image} alt={`imagem do ${item.name}`} />
-                                    <h2> {item.name} </h2>
-                                </li>
-                            )
-                        })
-                    }
-                </ul> : ""
-            }
+            <ul>
+                {
+                    pokedex.pokemons.map((item, index) => {
+                        return (
+                            <li key={index}>
+                                <img src={item.image} alt={`imagem do ${item.name}`} />
+                                <h2> {item.name} </h2>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
         </Main>
     )
 }
