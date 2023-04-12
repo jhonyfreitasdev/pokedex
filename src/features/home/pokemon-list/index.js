@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { getPokemons } from "../../../services/poke-api"
-import { Main } from "./styles"
+import { Main, List, Card } from "./styles"
 
-export const List = () => {
+export const PokemonList = () => {
 
     const [pokedex, setPokedex] = useState({
         pokemons: []
@@ -38,18 +38,18 @@ export const List = () => {
     return (
 
         <Main>
-            <ul>
+            <List>
                 {
                     pokedex.pokemons.map((item, index) => {
                         return (
-                            <li key={index}>
+                            <Card key={index}>
                                 <img src={item.image} alt={`imagem do ${item.name}`} />
                                 <h2> {item.name} </h2>
-                            </li>
+                            </Card>
                         )
                     })
                 }
-            </ul>
+            </List>
         </Main>
     )
 }
