@@ -1,12 +1,14 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Home } from "../features/home/pages";
+import { theme } from "../constants/theme"
+
 
 export const App = () => {
 	return (
-		<>
+		<ThemeProvider theme={theme}>
 			<GlobalStyle />
 			<Home />
-		</>
+		</ThemeProvider>
 	);
 }
 
@@ -28,8 +30,5 @@ const GlobalStyle = createGlobalStyle`
 	}
 	ul{
 		list-style: none;
-	}
-	img{
-		max-width: 100%;
 	}
 `
