@@ -1,4 +1,4 @@
-import { Menu } from "../menu";
+import { Menu } from "../menu/pages";
 import { PokemonList } from "../pokemon-list";
 import { Container } from "./styles";
 
