@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getPokemons } from "../../../services/poke-api"
-import { Main, List, Card } from "./styles"
+import { Main, List, Card, Button } from "./styles"
 
 export const PokemonList = () => {
 
@@ -8,16 +8,19 @@ export const PokemonList = () => {
         pokemons: []
     })
 
+    const [countLimit, setCountLimit] = useState(10)
+
     useEffect(() => {
+        
         const fetchData = async () => {
             const listPokemonUrl =  limit => {return `https://pokeapi.co/api/v2/pokemon/?limit=${limit}`};
-            const pokemonData = await getPokemons(listPokemonUrl(15))
-            
+            const pokemonData = await getPokemons(listPokemonUrl(countLimit))
+                
             let pokemonName = []
             pokemonData.results.forEach(item => {
                 pokemonName = [...pokemonName, item.name]    
             })
-            
+                
             let pokemonList = []
             pokemonName.forEach(item => {
                 const detailsPokemonUrl = pokemon => {return `https://pokeapi.co/api/v2/pokemon/${pokemon}`}
@@ -44,9 +47,11 @@ export const PokemonList = () => {
             })
         }
         fetchData()
-    }, [])
+    }, [countLimit])
 
-    console.log(pokedex);
+    const showMorePokemons = () => {
+        setCountLimit(countLimit + 10)
+    }
 
     return (
 
@@ -55,7 +60,7 @@ export const PokemonList = () => {
                 {
                     pokedex.pokemons.map((item, index) => {
                         return (
-                            <Card key={index}>
+                            <Card key={index} pokemon={item}>
                                 <img src={item.image} alt={`imagem do ${item.name}`} />
                                 <h2> {item.name} </h2>
                             </Card>
@@ -63,6 +68,8 @@ export const PokemonList = () => {
                     })
                 }
             </List>
+            
+            <Button type="button" onClick={showMorePokemons}>Carregar Mais ...</Button>
         </Main>
     )
 }
