@@ -10,30 +10,43 @@ export const PokemonList = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const pokemonData = await getPokemons()
-            let pokemonList = []
-            let count = 1
-
-            pokemonData.results.forEach(item => {
-                pokemonList = [
-                    ...pokemonList,
-                    {
-                        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${count}.png`,
-                        name: item.name
-                    }
-                ]
-                count = count + 1
-
-                setPokedex({
-                    pokemons: pokemonList
-                })
-            })
-
+            const listPokemonUrl =  limit => {return `https://pokeapi.co/api/v2/pokemon/?limit=${limit}`};
+            const pokemonData = await getPokemons(listPokemonUrl(15))
             
+            let pokemonName = []
+            pokemonData.results.forEach(item => {
+                pokemonName = [...pokemonName, item.name]    
+            })
+            
+            let pokemonList = []
+            pokemonName.forEach(item => {
+                const detailsPokemonUrl = pokemon => {return `https://pokeapi.co/api/v2/pokemon/${pokemon}`}
 
+                const getDetailsPokemon = async () => {
+                    const pokemonData = await getPokemons(detailsPokemonUrl(item))
+                    pokemonList = [
+                        ...pokemonList,
+                        {
+                            abilities: [pokemonData.abilities.map(item => {return item.ability.name})],
+                            image: pokemonData.sprites.front_default,
+                            moves: [pokemonData.moves.map(item => {return item.move.name})],
+                            name: pokemonData.name,
+                            types: [pokemonData.types.map(item => {return item.type.name})]
+                        }
+                    ]
+
+                    setPokedex({
+                        pokemons: pokemonList
+                    })
+                }
+
+                getDetailsPokemon()
+            })
         }
         fetchData()
     }, [])
+
+    console.log(pokedex);
 
     return (
 
