@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getPokemons } from "../../../services/poke-api"
 
-import { Main, List, Card, Button } from "./styles"
+import { List, Card, Button } from "./styles"
 
 export const PokemonList = () => {
 
@@ -55,8 +55,7 @@ export const PokemonList = () => {
     }
 
     return (
-
-        <Main>
+        <>
             <List>
                 {
                     pokedex.pokemons.map((item, index) => {
@@ -73,6 +72,6 @@ export const PokemonList = () => {
             </List>
 
             <Button type="button" onClick={showMorePokemons}>Carregar Mais ...</Button>
-        </Main>
+        </>
     )
 }
