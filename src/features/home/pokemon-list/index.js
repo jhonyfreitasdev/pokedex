@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import { getPokemons } from "../../../services/poke-api"
+
 import { Main, List, Card, Button } from "./styles"
 
 export const PokemonList = () => {
@@ -11,30 +13,29 @@ export const PokemonList = () => {
     const [countLimit, setCountLimit] = useState(10)
 
     useEffect(() => {
-        
+
         const fetchData = async () => {
-            const listPokemonUrl =  limit => {return `https://pokeapi.co/api/v2/pokemon/?limit=${limit}`};
+            const listPokemonUrl = limit => { return `https://pokeapi.co/api/v2/pokemon/?limit=${limit}` };
             const pokemonData = await getPokemons(listPokemonUrl(countLimit))
-                
+
             let pokemonName = []
             pokemonData.results.forEach(item => {
-                pokemonName = [...pokemonName, item.name]    
+                pokemonName = [...pokemonName, item.name]
             })
-                
+
             let pokemonList = []
             pokemonName.forEach(item => {
-                const detailsPokemonUrl = pokemon => {return `https://pokeapi.co/api/v2/pokemon/${pokemon}`}
+                const detailsPokemonUrl = pokemon => { return `https://pokeapi.co/api/v2/pokemon/${pokemon}` }
 
                 const getDetailsPokemon = async () => {
                     const pokemonData = await getPokemons(detailsPokemonUrl(item))
+
                     pokemonList = [
                         ...pokemonList,
                         {
-                            abilities: [pokemonData.abilities.map(item => {return item.ability.name})],
                             image: pokemonData.sprites.front_default,
-                            moves: [pokemonData.moves.map(item => {return item.move.name})],
                             name: pokemonData.name,
-                            types: [pokemonData.types.map(item => {return item.type.name})]
+                            types: pokemonData.types[0].type.name
                         }
                     ]
 
@@ -60,15 +61,17 @@ export const PokemonList = () => {
                 {
                     pokedex.pokemons.map((item, index) => {
                         return (
-                            <Card key={index} pokemon={item}>
-                                <img src={item.image} alt={`imagem do ${item.name}`} />
-                                <h2> {item.name} </h2>
-                            </Card>
+                            <Link to={`/pokemons/${item.name}`} key={index}>
+                                <Card pokemon={item}>
+                                    <img src={item.image} alt={`imagem do ${item.name}`} />
+                                    <h2> {item.name} </h2>
+                                </Card>
+                            </Link>
                         )
                     })
                 }
             </List>
-            
+
             <Button type="button" onClick={showMorePokemons}>Carregar Mais ...</Button>
         </Main>
     )
