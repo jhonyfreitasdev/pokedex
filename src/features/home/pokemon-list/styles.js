@@ -12,9 +12,7 @@ export const Card = styled.li`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: ${props => {
-        console.log(props);
-        
+    background-color: ${props => {        
         const pokemonType = [props.pokemon.types] 
         const typeColor = props.theme.pokemonTypesBackground        
         return typeColor[pokemonType] 
@@ -29,13 +27,16 @@ export const Card = styled.li`
         width: 115%;
     }
     &:hover > h2{
-        font-size: 2.1rem;
-        text-shadow: 0 0 7px #00000099;
-        padding: 7px;
+        color: ${props => {       
+        const pokemonType = [props.pokemon.types] 
+        const typeColor = props.theme.pokemonTypesBackground        
+        return typeColor[pokemonType] 
+        }}; 
+        text-shadow: 0 0 5px #000000;
     }
 
     img{
-        transition: 0.4s ease-in-out;
+        transition: .4s ease-in-out;
         width: 100%;
     }
 
@@ -45,6 +46,7 @@ export const Card = styled.li`
         font-size: 2rem;
         text-shadow: 0 0 5px #000000aa;
         text-align: center;
+        transition: .4s ease-in-out;
         border-radius: 0 0 5px 5px;
         padding: 7px;
         width: 100%;
