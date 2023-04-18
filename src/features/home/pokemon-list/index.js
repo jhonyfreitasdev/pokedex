@@ -25,10 +25,10 @@ export const PokemonList = () => {
 
             let pokemonList = []
             pokemonName.forEach(item => {
-                const detailsPokemonUrl = pokemon => { return `https://pokeapi.co/api/v2/pokemon/${pokemon}` }
+                const pokeDetailsUrl = pokemon => `https://pokeapi.co/api/v2/pokemon/${pokemon}`
 
-                const getDetailsPokemon = async () => {
-                    const pokemonData = await getPokemons(detailsPokemonUrl(item))
+                const getPokemonDetails = async () => {
+                    const pokemonData = await getPokemons(pokeDetailsUrl(item))
 
                     pokemonList = [
                         ...pokemonList,
@@ -44,7 +44,7 @@ export const PokemonList = () => {
                     })
                 }
 
-                getDetailsPokemon()
+                getPokemonDetails()
             })
         }
         fetchData()
