@@ -8,7 +8,7 @@ import { Container, Image, Description, H2, ContainerButtons, Button, List } fro
 export const PokemonDetails = () => {
 
     const [pokemon, setPokemon] = useState({ types: "" })
-    const [moves, setMoves] = useState()
+    const [list, setList] = useState()
 
     const { id } = useParams()
     const pokeDetailsUrl = `https://pokeapi.co/api/v2/pokemon/${id}`
@@ -27,50 +27,100 @@ export const PokemonDetails = () => {
         fetchData()
     }, [pokeDetailsUrl])
 
-    useEffect(() => {
-        async function fetchData() {
-            const pokemonData = await getPokemons(pokeDetailsUrl)
-            const movesNameList = pokemonData.moves.map(item => item.move.name)
-            const pokeMovesUrl = moveName => `https://pokeapi.co/api/v2/move/${moveName}`
-            let movesList = []
 
-            movesNameList.forEach(move => {
+    const showMoves = async () => {
+        const pokemonData = await getPokemons(pokeDetailsUrl)
+        const movesNameList = pokemonData.moves.map(item => item.move.name)
 
-                const getMoveDetails = async () => {
-                    const movesData = await getPokemons(pokeMovesUrl(move))
+        let movesList = []
+        movesNameList.forEach(item => {
 
-                    movesList = [
-                        ...movesList,
-                        {
-                            name: movesData.name,
-                            description: movesData.flavor_text_entries[2].flavor_text,
-                            type: movesData.type.name
-                        }
-                    ]
+            const getMoveDetails = async () => {
+                const moveData = await getPokemons(`https://pokeapi.co/api/v2/move/${item}`)
 
-                    setMoves({
-                        moves: movesList
-                    })
-                }
-                getMoveDetails()
-            })
-        }
-        fetchData()
-    }, [pokeDetailsUrl])
+                movesList = [
+                    ...movesList,
+                    {
+                        name: moveData.name,
+                        description: moveData.flavor_text_entries[2].flavor_text,
+                        type: moveData.type.name
+                    }
+                ]
+
+                setList(movesList)
+            }
+            getMoveDetails()
+        })
+    }
+
+    const showAbilities = async () => {
+        const pokemonData = await getPokemons(pokeDetailsUrl)
+        const abilitiesNameList = pokemonData.abilities.map(item => item.ability.name)
+
+        let abilitiesList = []
+        abilitiesNameList.forEach(item => {
+
+            const getAbilityDetails = async () => {
+                const abilityData = await getPokemons(`https://pokeapi.co/api/v2/ability/${item}`)
+
+                abilitiesList = [
+                    ...abilitiesList,
+                    {
+                        name: abilityData.name,
+                        description: abilityData.effect_entries[0].effect
+                    }
+                ]
+
+                setList(abilitiesList)
+            }
+            getAbilityDetails()
+        })
+    }
+
+
 
     return (
         <Container pokemon={pokemon}>
-            <Link to="/"> X </Link>
-            <Image></Image>
-            <Description>
-                <H2></H2>
-                <H2></H2>
-            </Description>
-            <ContainerButtons>
-                <Button></Button>
-                <Button></Button>
-            </ContainerButtons>
-            <List></List>
+            {
+                pokemon.types !== "" ?
+                    <>
+                        <Link to="/"> X </Link>
+                        <Image src={pokemon.image} alt={`Imagem do ${pokemon.name}`} />
+                        <Description>
+                            <H2>{pokemon.name}</H2>
+                            {
+                                pokemon.types.map((type, index) => {
+                                    return (
+                                        <H2 key={index}>{type}</H2>
+                                    )
+                                })
+                            }
+                        </Description>
+                        <ContainerButtons>
+                            <Button type="button" onClick={showMoves}> Moves </Button>
+                            <Button type="button" onClick={showAbilities}> Abilities </Button>
+                        </ContainerButtons>
+                        <List>
+                            {
+                                list !== undefined ?
+                                    <>
+                                        {
+                                            list.map((item, index) => {
+                                                return (
+                                                    <li key={index}>
+                                                        <h3>{item.name}</h3>
+                                                        <p>{item.description}</p>
+                                                    </li>
+                                                )
+                                            })
+                                        }
+                                    </>
+                                    : ""
+                            }
+                        </List>
+                    </>
+                    : ""
+            }
         </Container>
     )
 }
