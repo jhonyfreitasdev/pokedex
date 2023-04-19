@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom"
 
 import { getPokemons } from "../../../services/poke-api"
 
-import { Container, Card, Image, Description, Title, Type, ContainerButtons, ButtonMove, ButtonAbility, List, ListTitle, Item, Message } from "./styles"
+import { Container, Card, Image, Description, Title, Type, ContainerButtons, Button, List, ListTitle, Item, Message } from "./styles"
 
 export const PokemonDetails = () => {
 
@@ -80,8 +80,6 @@ export const PokemonDetails = () => {
         setButtonActive("abilities")
     }
 
-
-    console.log(buttonActive);
     return (
         <Container pokemon={pokemon}>
             {
@@ -108,13 +106,13 @@ export const PokemonDetails = () => {
                         </Card>
 
                         <ContainerButtons>
-                            <ButtonMove type="button" status={buttonActive === "moves" ? true : false} onClick={showMoves}>
+                            <Button type="button" status={buttonActive === "moves" ? true : false} onClick={showMoves}>
                                 Moves 
-                            </ButtonMove>
+                            </Button>
 
-                            <ButtonAbility type="button" status={buttonActive === "abilities" ? true : false} onClick={showAbilities}> 
+                            <Button type="button" status={buttonActive === "abilities" ? true : false} onClick={showAbilities}> 
                                 Abilities 
-                            </ButtonAbility>
+                            </Button>
                         </ContainerButtons>
 
                         <List>

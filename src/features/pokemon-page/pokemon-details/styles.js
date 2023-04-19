@@ -85,20 +85,7 @@ export const ContainerButtons = styled.div`
     width: 45%;
 `
 
-export const ButtonMove = styled.button`
-    background-color: #ffffff;  
-    transition: .3s ease-in-out;
-    border-radius: 8px;
-    box-shadow: 0 0 10px 2px #00000030;
-    cursor: pointer;
-    padding: 7px 15px;
-
-    ${props => props.status && css`
-        background-color: black;
-    `}
-`
-
-export const ButtonAbility = styled.button`
+export const Button = styled.button`
     background-color: #ffffff;  
     transition: .3s ease-in-out;
     border-radius: 8px;
