@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom"
 
 import { getPokemons } from "../../../services/poke-api"
 
-import { Container, Image, Description, H2, ContainerButtons, Button, List } from "./styles"
+import { Container, Card, Image, Description, Title, Type, ContainerButtons, Button, List, ListTitle, Item, Message } from "./styles"
 
 export const PokemonDetails = () => {
 
@@ -40,7 +40,7 @@ export const PokemonDetails = () => {
 
                 movesList = [
                     ...movesList,
-                    {
+                    {   
                         name: moveData.name,
                         description: moveData.flavor_text_entries[2].flavor_text,
                         type: moveData.type.name
@@ -77,45 +77,55 @@ export const PokemonDetails = () => {
         })
     }
 
-
-
     return (
         <Container pokemon={pokemon}>
             {
                 pokemon.types !== "" ?
                     <>
                         <Link to="/"> X </Link>
-                        <Image src={pokemon.image} alt={`Imagem do ${pokemon.name}`} />
-                        <Description>
-                            <H2>{pokemon.name}</H2>
-                            {
-                                pokemon.types.map((type, index) => {
-                                    return (
-                                        <H2 key={index}>{type}</H2>
-                                    )
-                                })
-                            }
-                        </Description>
+
+                        <Card pokemon={pokemon}>
+                            <Image src={pokemon.image} alt={`Imagem do ${pokemon.name}`} />
+
+                            <Description>
+                                <Title pokemon={pokemon}>{pokemon.name}</Title>
+
+                                <Type pokemon={pokemon}>
+                                    {
+                                        pokemon.types.map((type, index) => {
+                                            return (
+                                                <h2 key={index}>{type}</h2>
+                                            )
+                                        })
+                                    }
+                                </Type>
+                            </Description>
+                        </Card>
+
                         <ContainerButtons>
                             <Button type="button" onClick={showMoves}> Moves </Button>
                             <Button type="button" onClick={showAbilities}> Abilities </Button>
                         </ContainerButtons>
+
                         <List>
                             {
                                 list !== undefined ?
                                     <>
+                                        <ListTitle> 
+                                            <p>{ list.title }</p> 
+                                        </ListTitle>
                                         {
                                             list.map((item, index) => {
                                                 return (
-                                                    <li key={index}>
+                                                    <Item pokemon={pokemon} key={index}>
                                                         <h3>{item.name}</h3>
                                                         <p>{item.description}</p>
-                                                    </li>
+                                                    </Item>
                                                 )
                                             })
                                         }
                                     </>
-                                    : ""
+                                    : <Message> Selecione no botão a lista que deseja ver </Message>
                             }
                         </List>
                     </>
