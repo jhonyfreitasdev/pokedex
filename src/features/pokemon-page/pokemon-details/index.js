@@ -3,12 +3,13 @@ import { Link, useParams } from "react-router-dom"
 
 import { getPokemons } from "../../../services/poke-api"
 
-import { Container, Card, Image, Description, Title, Type, ContainerButtons, Button, List, ListTitle, Item, Message } from "./styles"
+import { Container, Card, Image, Description, Title, Type, ContainerButtons, ButtonMove, ButtonAbility, List, ListTitle, Item, Message } from "./styles"
 
 export const PokemonDetails = () => {
 
     const [pokemon, setPokemon] = useState({ types: "" })
     const [list, setList] = useState()
+    const [buttonActive, setButtonActive] = useState()
 
     const { id } = useParams()
     const pokeDetailsUrl = `https://pokeapi.co/api/v2/pokemon/${id}`
@@ -51,6 +52,7 @@ export const PokemonDetails = () => {
             }
             getMoveDetails()
         })
+        setButtonActive("moves")
     }
 
     const showAbilities = async () => {
@@ -75,8 +77,11 @@ export const PokemonDetails = () => {
             }
             getAbilityDetails()
         })
+        setButtonActive("abilities")
     }
 
+
+    console.log(buttonActive);
     return (
         <Container pokemon={pokemon}>
             {
@@ -103,8 +108,13 @@ export const PokemonDetails = () => {
                         </Card>
 
                         <ContainerButtons>
-                            <Button type="button" onClick={showMoves}> Moves </Button>
-                            <Button type="button" onClick={showAbilities}> Abilities </Button>
+                            <ButtonMove type="button" status={buttonActive === "moves" ? true : false} onClick={showMoves}>
+                                Moves 
+                            </ButtonMove>
+
+                            <ButtonAbility type="button" status={buttonActive === "abilities" ? true : false} onClick={showAbilities}> 
+                                Abilities 
+                            </ButtonAbility>
                         </ContainerButtons>
 
                         <List>
