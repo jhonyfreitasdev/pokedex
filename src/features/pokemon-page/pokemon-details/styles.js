@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
     position: relative;
@@ -85,17 +85,30 @@ export const ContainerButtons = styled.div`
     width: 45%;
 `
 
-export const Button = styled.button`
+export const ButtonMove = styled.button`
     background-color: #ffffff;  
     transition: .3s ease-in-out;
     border-radius: 8px;
     box-shadow: 0 0 10px 2px #00000030;
+    cursor: pointer;
     padding: 7px 15px;
 
-    &:hover{
-        cursor: pointer;
-        transform: translateY(-2px);
-    }
+    ${props => props.status && css`
+        background-color: black;
+    `}
+`
+
+export const ButtonAbility = styled.button`
+    background-color: #ffffff;  
+    transition: .3s ease-in-out;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 2px #00000030;
+    cursor: pointer;
+    padding: 7px 15px;
+
+    ${props => props.status && css`
+        background-color: black;
+    `}
 `
 
 export const List = styled.ul`
