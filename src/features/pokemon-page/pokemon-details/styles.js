@@ -94,7 +94,9 @@ export const Button = styled.button`
     padding: 7px 15px;
 
     ${props => props.status && css`
-        background-color: black;
+        background-color: #ffffff60};
+        box-shadow: 0 0 2px 2px #00000015;
+        outline: 1px solid #00000045;
     `}
 `
 

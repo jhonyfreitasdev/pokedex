@@ -106,11 +106,11 @@ export const PokemonDetails = () => {
                         </Card>
 
                         <ContainerButtons>
-                            <Button type="button" status={buttonActive === "moves" ? true : false} onClick={showMoves}>
+                            <Button pokemon={pokemon} type="button" status={buttonActive === "moves" ? true : false} onClick={showMoves}>
                                 Moves 
                             </Button>
 
-                            <Button type="button" status={buttonActive === "abilities" ? true : false} onClick={showAbilities}> 
+                            <Button pokemon={pokemon} type="button" status={buttonActive === "abilities" ? true : false} onClick={showAbilities}> 
                                 Abilities 
                             </Button>
                         </ContainerButtons>
