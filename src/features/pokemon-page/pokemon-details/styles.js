@@ -109,6 +109,23 @@ export const List = styled.ul`
     border: 1px solid #00000035;
     width: 70%;
     height: 35%;
+
+    &::-webkit-scrollbar{
+        width: 15px;
+        padding:5px;
+    }
+    &::-webkit-scrollbar-track{
+        border-radius: 0 8px 8px 0;
+        background-color: #00000070;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: ${props => {
+            const pokemonType = [props.pokemon.types[0]] 
+            const typeColor = props.theme.pokemonTypesBackground        
+            return typeColor[pokemonType] 
+        }};
+        border-radius: 10px;
+    }
 `
 
 export const ListTitle = styled.li`

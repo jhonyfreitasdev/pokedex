@@ -115,7 +115,7 @@ export const PokemonDetails = () => {
                             </Button>
                         </ContainerButtons>
 
-                        <List>
+                        <List pokemon={pokemon}>
                             {
                                 list !== undefined ?
                                     <>
