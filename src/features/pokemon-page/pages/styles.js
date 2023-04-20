@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import background from "../../../_assets/images/background.png"
 
 export const Container = styled.div`
-    background: url(${background}) center bottom no-repeat ;
+    background: url(${props => props.theme.backgroundImage}) center bottom no-repeat ;
+    transition: .6s ease-in-out;
     background-size: cover;
     height: 100vh;
 `
