@@ -5,10 +5,12 @@ import nightBackground from "../_assets/images/night-background.jpg"
 
 export const themes = {
     light: {
+        id: "light",
         backgroundImage: dayBackground,
         backgroundColor: "#ffffff75"
     },
     dark: {
+        id: "dark",
         backgroundImage: nightBackground,
         backgroundColor: "#00000075"
     }
