@@ -1,4 +1,4 @@
-export const theme = {
+export const types = {
     pokemonTypesBackground: {
         normal: "#919AA2",
         grass: "#63BC5A",
