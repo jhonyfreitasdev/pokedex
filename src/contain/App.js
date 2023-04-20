@@ -1,14 +1,17 @@
+import { BackgroundProvider } from "../context/theme-context";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { theme } from "../constants/theme"
+import { types } from "../constants/types"
 import { AppRoutes } from "./routes";
 
 
 export const App = () => {
 	return (
-		<ThemeProvider theme={theme}>
-			<GlobalStyle />
-			<AppRoutes />
-		</ThemeProvider>
+		<BackgroundProvider>
+			<ThemeProvider theme={types}>
+				<GlobalStyle />
+				<AppRoutes />
+			</ThemeProvider>
+		</BackgroundProvider>
 	);
 }
 
