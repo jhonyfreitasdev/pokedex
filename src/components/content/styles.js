@@ -13,4 +13,17 @@ export const Main = styled.main`
     height: 88%;
     margin: -14px auto 0 auto;
     padding: 30px 40px 0 30px;
+
+
+    &::-webkit-scrollbar{
+        width: 15px;
+        padding:5px;
+    }
+    &::-webkit-scrollbar-track{
+        background-color: #00000000;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: ${props => props.theme.id === "light" ? "#00000070" : "#ffffff70"};
+        border-radius: 30px;
+    }
 `
