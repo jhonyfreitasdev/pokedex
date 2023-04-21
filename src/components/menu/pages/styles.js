@@ -10,7 +10,8 @@ export const Header = styled.header`
     background: url(${pokedex}) left top no-repeat;
     background-size: cover;
     box-shadow: 0 3px 7px 5px #00000030;
-    width: 60%;
+    border-radius: 15px 15px 0 0;
+    width: 78%;
     margin: 0 auto;
     padding: 15px 30px;
 
@@ -24,4 +25,5 @@ export const Header = styled.header`
 
 export const Image = styled.img`
     width: 50px;
+    border-radius: 20px;
 `

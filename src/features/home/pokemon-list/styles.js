@@ -54,7 +54,7 @@ export const Card = styled.li`
 ` 
 
 export const Button = styled.button`
-    background-color: #ce0628;
+    background-color: #ee0d24;
     color: #ffffffdd;
     font-size: 1.9rem;
     font-weight: 400;

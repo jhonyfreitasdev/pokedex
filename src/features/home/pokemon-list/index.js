@@ -68,9 +68,9 @@ export const PokemonList = () => {
                             </Link>
                         )
                     })
-                }
+                }    
             </List>
-
+                
             <Button type="button" onClick={showMorePokemons}>Carregar Mais ...</Button>
         </>
     )
