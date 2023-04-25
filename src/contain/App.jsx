@@ -2,7 +2,7 @@ import { BackgroundProvider } from "../context/theme-context";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { types } from "../constants/types"
 import { AppRoutes } from "./routes";
-
+import "../_assets/styles/fonts.css"
 
 export const App = () => {
 	return (
@@ -18,14 +18,17 @@ export const App = () => {
 const GlobalStyle = createGlobalStyle`
   	html{
     	font-size: 62.5%;
+		font-family: 'Patrick Hand SC', cursive;
   	}
   	*{
 		margin: 0;
 		padding: 0;
 		border: none;
 		outline: none;
-		font-weight: 300;
 		box-sizing: border-box;
+	}
+	h1{
+		font-family: 'Pokemon';
 	}
 	a{
 		text-decoration: none;
