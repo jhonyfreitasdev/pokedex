@@ -20,7 +20,7 @@ export const Container = styled.div`
         position: absolute;
         right: -20px;
         top: -20px;
-        background-color: #fafafa;
+        background-color: #d6d4d4;
         font-family: 'Patrick Hand SC', cursive;
         font-weight: bolder;
         font-size: 2rem;

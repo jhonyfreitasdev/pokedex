@@ -17,7 +17,7 @@ export const types = {
         psychic: "#FA7179",
         ghost: "#5269AD",
         shadow: "#131313aa",
-        fairy: "#AC52ACae",
+        fairy: "#AC52ACde",
         dragon: "#257167",
         unknown: "#ffffff"
     }

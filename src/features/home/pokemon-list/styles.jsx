@@ -10,6 +10,7 @@ export const List = styled.ul`
 export const Card = styled.li`
     display: flex;
     flex-direction: column;
+    transition: .4s ease-in-out;
     justify-content: space-between;
     align-items: center;
     background-color: ${props => {        
@@ -21,7 +22,7 @@ export const Card = styled.li`
     border: solid 5px #00000032;
     border-radius: 10px;
     width: 140px;
-    height: 160px;
+    height: 170px;
 
     h2{
         background-color: #00000032;
@@ -31,7 +32,7 @@ export const Card = styled.li`
         text-align: center;
         transition: .4s ease-in-out;
         border-radius: 0 0 5px 5px;
-        padding: 7px;
+        padding: 3px;
         width: 100%;
     }
     &:hover > h2{
@@ -48,7 +49,7 @@ export const Image = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 15px;
+    margin-top: 7px;
 
     img{
         min-width: 43%;
