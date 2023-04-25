@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getPokemons } from "../../../services/poke-api"
 
-import { List, Card, Button } from "./styles"
+import { List, Card, Image, Button } from "./styles"
 
 export const PokemonList = () => {
 
@@ -33,7 +33,7 @@ export const PokemonList = () => {
                     pokemonList = [
                         ...pokemonList,
                         {
-                            image: pokemonData.sprites.front_default,
+                            image: pokemonData.sprites.versions['generation-v']['black-white'].animated.front_default,
                             name: pokemonData.name,
                             types: pokemonData.types[0].type.name
                         }
@@ -62,7 +62,9 @@ export const PokemonList = () => {
                         return (
                             <Link to={`/pokemons/${item.name}`} key={index}>
                                 <Card pokemon={item}>
-                                    <img src={item.image} alt={`imagem do ${item.name}`} />
+                                    <Image>
+                                        <img src={item.image} alt={`imagem do ${item.name}`} />
+                                    </Image>
                                     <h2> {item.name} </h2>
                                 </Card>
                             </Link>

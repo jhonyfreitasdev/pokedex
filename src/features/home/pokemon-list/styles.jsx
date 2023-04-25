@@ -20,25 +20,8 @@ export const Card = styled.li`
     box-shadow: 0 5px 5px 3px #00000020;
     border: solid 5px #00000032;
     border-radius: 10px;
-    width: 150px;
-    height: 215px;
-
-    &:hover > img{
-        width: 115%;
-    }
-    &:hover > h2{
-        color: ${props => {       
-        const pokemonType = [props.pokemon.types] 
-        const typeColor = props.theme.pokemonTypesBackground        
-        return typeColor[pokemonType] 
-        }}; 
-        text-shadow: 0 0 5px #000000;
-    }
-
-    img{
-        transition: .4s ease-in-out;
-        width: 100%;
-    }
+    width: 140px;
+    height: 160px;
 
     h2{
         background-color: #00000032;
@@ -51,7 +34,26 @@ export const Card = styled.li`
         padding: 7px;
         width: 100%;
     }
+    &:hover > h2{
+        color: ${props => {       
+        const pokemonType = [props.pokemon.types] 
+        const typeColor = props.theme.pokemonTypesBackground        
+        return typeColor[pokemonType] 
+        }}; 
+        text-shadow: 0 0 5px #000000;
+    }
 ` 
+
+export const Image = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
+
+    img{
+        min-width: 43%;
+    }
+`
 
 export const Button = styled.button`
     background-color: #ee0d24;

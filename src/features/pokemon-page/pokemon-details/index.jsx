@@ -19,7 +19,7 @@ export const PokemonDetails = () => {
             const pokemonData = await getPokemons(pokeDetailsUrl)
             const details = {
                 name: pokemonData.name,
-                image: pokemonData.sprites.front_default,
+                image: pokemonData.sprites.versions['generation-v']['black-white'].animated.front_default,
                 types: pokemonData.types.map(item => item.type.name)
             }
             setPokemon(details)
@@ -88,7 +88,9 @@ export const PokemonDetails = () => {
                         <Link to="/"> X </Link>
 
                         <Card pokemon={pokemon}>
-                            <Image src={pokemon.image} alt={`Imagem do ${pokemon.name}`} />
+                            <Image>
+                                <img src={pokemon.image} alt={`Imagem do ${pokemon.name}`} />
+                            </Image>
 
                             <Description>
                                 <Title pokemon={pokemon}>{pokemon.name}</Title>

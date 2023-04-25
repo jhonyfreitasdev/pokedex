@@ -39,8 +39,13 @@ export const Card = styled.div`
     width: 45%;
 `
 
-export const Image = styled.img`
-width: 60%;
+export const Image = styled.div`
+    width: 100%;
+    margin: 15px 0;
+
+    img{
+        min-width: 35%;
+    }
 `
 
 export const Description = styled.div`
