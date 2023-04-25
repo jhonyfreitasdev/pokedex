@@ -56,7 +56,8 @@ export const Card = styled.li`
 export const Button = styled.button`
     background-color: #ee0d24;
     color: #ffffffdd;
-    font-size: 1.9rem;
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 2rem;
     font-weight: 400;
     cursor: pointer;
     transition: 0.4s ease-in-out;

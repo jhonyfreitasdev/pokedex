@@ -12,6 +12,7 @@ export const Header = styled.header`
     box-shadow: 0 3px 7px 5px #00000030;
     border-radius: 15px 15px 0 0;
     width: 78%;
+    height: 63px;
     margin: 0 auto;
     padding: 15px 30px;
 
@@ -20,10 +21,12 @@ export const Header = styled.header`
         font-size: 3.5rem;
         font-weight: 700;
         text-shadow: 0 0 9px #00000037;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #484848;
     }
 ` 
 
 export const Image = styled.img`
-    width: 50px;
+    width: 35px;
     border-radius: 20px;
 `

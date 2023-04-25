@@ -14,18 +14,20 @@ export const Container = styled.div`
     border-radius: 15px;
     padding: 15px;
     width: 70%;
-    height: 90%;
+    height: 97%;
 
     a{
         position: absolute;
-        right: -25px;
-        top: -25px;
+        right: -20px;
+        top: -20px;
         background-color: #fafafa;
+        font-family: 'Patrick Hand SC', cursive;
+        font-weight: bolder;
         font-size: 2rem;
         text-align: center;
         border-radius: 50%;
-        border: 3px #ce0628aa solid;
-        padding: 9px 12px;
+        border: 3px red solid;
+        padding: 0px 6px 2px 7px;
     }
 `
 
@@ -46,9 +48,10 @@ export const Description = styled.div`
     justify-content: space-between;
     background-color: #00000026;
     color: #ffffff;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     border-radius: 0 0 8px 8px;
     padding: 7px 15px;
+    text-shadow: 0 0 5px #0007;
 `
 
 export const Title = styled.h2`
@@ -86,7 +89,9 @@ export const ContainerButtons = styled.div`
 `
 
 export const Button = styled.button`
-    background-color: #ffffff;  
+    background-color: #ffffff;
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 1.7rem;
     transition: .3s ease-in-out;
     border-radius: 8px;
     box-shadow: 0 0 10px 2px #00000030;
@@ -128,13 +133,6 @@ export const List = styled.ul`
     }
 `
 
-export const ListTitle = styled.li`
-    h2{
-        font-size: 1.7rem;
-        font-weight: bold;
-    }
-`
-
 export const Item = styled.li`
     background-color: ${props => {
         const pokemonType = [props.pokemon.types[0]] 
@@ -147,14 +145,14 @@ export const Item = styled.li`
 
     h3{
         color: #000000c9;
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         font-weight: bold;
         text-transform: capitalize;
         margin-bottom: 4px;
     }
 
     p{
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 `
 

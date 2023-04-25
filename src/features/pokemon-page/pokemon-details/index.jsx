@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom"
 
 import { getPokemons } from "../../../services/poke-api"
 
-import { Container, Card, Image, Description, Title, Type, ContainerButtons, Button, List, ListTitle, Item, Message } from "./styles"
+import { Container, Card, Image, Description, Title, Type, ContainerButtons, Button, List, Item, Message } from "./styles"
 
 export const PokemonDetails = () => {
 
@@ -119,9 +119,6 @@ export const PokemonDetails = () => {
                             {
                                 list !== undefined ?
                                     <>
-                                        <ListTitle> 
-                                            <p>{ list.title }</p> 
-                                        </ListTitle>
                                         {
                                             list.map((item, index) => {
                                                 return (
