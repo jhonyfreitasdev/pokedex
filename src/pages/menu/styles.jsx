@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import pokedex from "../../../_assets/images/pokedex.png"
+import pokedex from "../../_assets/images/pokedex.png"
 
 export const Header = styled.header`
     display: flex;

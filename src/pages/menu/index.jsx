@@ -1,6 +1,7 @@
-import { ToggleButton } from "../toggle-button";
+import light from "../../_assets/images/light-pokedex.gif"
+import { ToggleButton } from "../../components/toggle-button";
+
 import { Header, Image } from "./styles";
-import light from "../../../_assets/images/light-pokedex.gif"
 
 export const Menu = () => {
     return(

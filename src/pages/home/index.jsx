@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../context/theme-context";
 
-import { Menu } from "../../components/menu/pages/index";
-import { Pokedex } from "../../components/pokedex";
-import { PokemonList } from "../../components/home/pokemon-list";
+import { Menu } from "../menu"
+import { Pokedex } from "../../components/pokedex"
+import { PokemonList } from "../../components/pokemon-list"
 
 import { Container } from "./styles";
 

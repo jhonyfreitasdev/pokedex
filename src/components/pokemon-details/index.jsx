@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 
-import { getPokemons } from "../../../services/poke-api"
+import { getPokemons } from "../../services/poke-api"
 
 import { Container, Card, Image, Description, Title, Type, ContainerButtons, Button, List, Item, Message } from "./styles"
 
