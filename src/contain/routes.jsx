@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
-import { Home } from "../features/home/pages"
-import { PokemonPage } from "../features/pokemon-page/pages";
+import { Home } from "../components/home/pages"
+import { PokemonPage } from "../components/pokemon-page/pages";
 
 export const AppRoutes = () => (
     <BrowserRouter>

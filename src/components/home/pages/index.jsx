@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../../../context/theme-context";
 
 import { Menu } from "../../../components/menu/pages/index";
-import { Content } from "../../../components/content";
+import { Pokedex } from "../../pokedex";
 import { PokemonList } from "../pokemon-list";
 
 import { Container } from "./styles";
@@ -14,9 +14,9 @@ export const Home = () => {
     return(
         <Container theme={theme}>
             <Menu />
-            <Content> 
+            <Pokedex> 
                 <PokemonList />
-            </Content>
+            </Pokedex>
         </Container>
     )
 }
