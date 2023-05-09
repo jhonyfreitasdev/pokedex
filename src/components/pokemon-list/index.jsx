@@ -61,8 +61,8 @@ export const PokemonList = () => {
                     pokedex.pokemons.map((item, index) => {
                         return (
                             <Link to={`/pokemons/${item.name}`} key={index}>
-                                <Card pokemon={item}>
-                                    <Image>
+                                <Card pokemon={item} data-testid="pokemon-card">
+                                    <Image> 
                                         <img src={item.image} alt={`imagem do ${item.name}`} />
                                     </Image>
                                     <h2> {item.name} </h2>

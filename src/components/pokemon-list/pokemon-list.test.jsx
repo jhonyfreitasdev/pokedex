@@ -1,8 +1,10 @@
 import React from "react"
-import { render, screen } from "@testing-library/react"
 import "@testing-library/jest-dom"
-
+import { fireEvent, render, screen, waitFor} from "@testing-library/react"
+import { Router } from "react-router-dom"
+import { createMemoryHistory } from "history"
 import { PokemonList } from "."
+
 
 describe("PokemonList", () => {
     it("should render correctly", () => {
@@ -11,10 +13,13 @@ describe("PokemonList", () => {
         expect(getByText("Carregar mais Pokemon...")).toBeInTheDocument()
     })
 
-    it('It should return the correct status value', () => {
-        render(<PokemonList />);
-        const countLimit = screen.getByTestId('countLimit')
-        
-        expect(countLimit.textContent).toBe(10);
+    it("should call pokemons page when click the button", async () => {
+        render(<PokemonList/>)
+
+        await waitFor(() => {
+            fireEvent.click(screen.findAllByTestId("pokemon-card"))
+        })
+        expect(window.location.pathname).toBe("/pokemons/")
+         
     })
 })
