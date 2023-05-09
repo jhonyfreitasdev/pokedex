@@ -10,8 +10,8 @@ export const ToggleButton = () => {
     const { theme, toggleTheme } = useContext(ThemeContext)
 
     return(            
-        <Switch 
-            onChange={toggleTheme} 
+        <Switch
+            onChange={toggleTheme}
             checked={theme === themes.light}
             uncheckedIcon={<Dark> <i className="fa-solid fa-moon"></i> </Dark>}
             checkedIcon={<Light> <i className="fa-solid fa-sun"></i> </Light>}

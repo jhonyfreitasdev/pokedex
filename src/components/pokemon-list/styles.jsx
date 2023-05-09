@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../constants/device";
 
 export const List = styled.ul`
     display: flex;
@@ -69,6 +70,12 @@ export const Button = styled.button`
     margin: 40px 0 10px 0; 
     padding: 8px;
     width: 230px;
+
+    @media ${device.mobileL} {
+        width: 90%;
+        padding: 5px;
+        font-size: 1.8rem;
+    }
 
     &:hover{
         transform: translateY(-2px);

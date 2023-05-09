@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import { device } from "../../constants/device";
 
 export const Main = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     background-color: ${props => props.theme.backgroundColor};
     border: 15px solid #ee0d24;
     transition: .6s ease-in-out;
@@ -12,9 +14,15 @@ export const Main = styled.main`
     border-radius: 0 0 5px 5px ;
     width: 78%;
     height: 88%;
-    margin: -14px auto 0 auto;
-    padding: 30px 40px 0 30px;
+    margin: 0 auto;
+    padding: 10px 30px 10px 30px;
 
+    @media ${device.tabletS} {
+        padding: 10px 10px 5px 10px;
+    }
+    @media ${device.mobileL} {
+        width: 90%;
+    }
 
     &::-webkit-scrollbar{
         width: 15px;

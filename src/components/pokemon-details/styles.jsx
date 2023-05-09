@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { device } from "../../constants/device";
 
 export const Container = styled.div`
     position: relative;
@@ -14,7 +15,15 @@ export const Container = styled.div`
     border-radius: 15px;
     padding: 15px;
     width: 70%;
-    height: 97%;
+    height: 100%;
+
+    @media ${device.laptop} {
+        width: 90%;
+    }
+    @media ${device.mobileL} {
+        width: 100%;
+        padding: 8px;
+    }
 
     a{
         position: absolute;
@@ -37,6 +46,19 @@ export const Card = styled.div`
     border-radius: 15px 15px 8px 8px;
     box-shadow: 0 0 10px 2px #00000030;
     width: 45%;
+
+    @media ${device.laptop} {
+        width: 55%;
+    }
+    @media ${device.tablet} {
+        width: 80%;
+    }
+    @media ${device.tabletS} {
+        width: 90%;
+    }
+    @media ${device.mobileL} {
+        width: 98%;
+    }
 `
 
 export const Image = styled.div`
@@ -55,8 +77,12 @@ export const Description = styled.div`
     color: #ffffff;
     font-size: 1.4rem;
     border-radius: 0 0 8px 8px;
-    padding: 7px 15px;
+    padding: 7px;
     text-shadow: 0 0 5px #0007;
+
+    @media ${device.mobileS} {
+        padding: 4px;
+    }
 `
 
 export const Title = styled.h2`
@@ -66,13 +92,17 @@ export const Title = styled.h2`
         return typeColor[pokemonType] 
     }};
     border-radius: 5px;
-    padding: 4px;
+    padding: 2px;
+
+    @media ${device.laptop} {
+        font-size: 1.8rem;
+    }
 `
 
 export const Type = styled.div`
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 2px;
 
     h2{
         background-color: ${props => {
@@ -81,7 +111,11 @@ export const Type = styled.div`
             return typeColor[pokemonType] 
         }};
         border-radius: 5px;
-        padding: 4px;
+        padding: 2px;
+     
+        @media ${device.laptop} {
+            font-size: 1.8rem;
+        }
     }
 `
 
@@ -89,8 +123,12 @@ export const ContainerButtons = styled.div`
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin: 25px 0;
-    width: 45%;
+    margin: 18px 0;
+    width: 100%;
+
+    @media ${device.mobileS} {
+        gap: 10px;
+    }
 `
 
 export const Button = styled.button`
@@ -103,6 +141,11 @@ export const Button = styled.button`
     cursor: pointer;
     padding: 7px 15px;
 
+    @media ${device.mobileS} {
+        font-size: 1.6rem;
+        padding: 7px 8px;
+    }
+
     ${props => props.status && css`
         background-color: #ffffff60};
         box-shadow: 0 0 2px 2px #00000015;
@@ -111,6 +154,7 @@ export const Button = styled.button`
 `
 
 export const List = styled.ul`
+    position: relative;
     background-color: #00000033;
     color: #ffffff;
     overflow: auto;
@@ -118,7 +162,17 @@ export const List = styled.ul`
     box-shadow: 0 0 5px 4px #00000045;
     border: 1px solid #00000035;
     width: 70%;
-    height: 35%;
+    min-height: 35%;
+
+    @media ${device.laptop} {
+        width: 80%;
+    }
+    @media ${device.tabletS} {
+        width: 90%;
+    }
+    @media ${device.mobileL} {
+        width: 98%;
+    }
 
     &::-webkit-scrollbar{
         width: 15px;
@@ -154,16 +208,27 @@ export const Item = styled.li`
         font-weight: bold;
         text-transform: capitalize;
         margin-bottom: 4px;
+
+        @media ${device.mobileS} {
+            font-size: 1.5rem;
+        }
     }
 
     p{
         font-size: 1.5rem;
+        @media ${device.mobileS} {
+            font-size: 1.4rem;
+        }
     }
 `
 
 export const Message = styled.p`
-    transform: translateY(300%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #ffffffaa;
     font-size: 1.8rem;
     text-align: center;
-    color: #ffffffaa;
+    width: 80%;
 `
