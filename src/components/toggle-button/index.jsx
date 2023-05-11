@@ -1,6 +1,7 @@
 import { useContext } from "react"
-import { themes, ThemeContext } from "../../context/theme-context"
 import Switch from "react-switch"
+
+import { themes, ThemeContext } from "../../context/theme-context"
 
 import { Dark, Light } from "./styles"
 import "./index.css"

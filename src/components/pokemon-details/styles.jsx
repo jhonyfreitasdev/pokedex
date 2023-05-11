@@ -7,9 +7,13 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     background-color: ${props => {
-        const pokemonType = [props.pokemon.types[0]] 
-        const typeColor = props.theme.pokemonTypesBackground        
-        return typeColor[pokemonType] 
+        if(props.pokemon !== undefined){
+            const pokemonType = [props.pokemon.types[0]] 
+            const typeColor = props.theme.pokemonTypesBackground        
+            return typeColor[pokemonType]
+        }else{
+            return
+        }
     }};
     border: 10px solid #0000002a;
     border-radius: 15px;
@@ -105,11 +109,6 @@ export const Type = styled.div`
     gap: 2px;
 
     h2{
-        background-color: ${props => {
-            const pokemonType = [props.pokemon.types[0]] 
-            const typeColor = props.theme.pokemonTypesBackground        
-            return typeColor[pokemonType] 
-        }};
         border-radius: 5px;
         padding: 2px;
      

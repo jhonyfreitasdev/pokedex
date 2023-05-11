@@ -1,7 +1,9 @@
 import { BackgroundProvider } from "../context/theme-context";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { types } from "../constants/types"
 import { AppRoutes } from "./routes";
+
+import { types } from "../constants/types"
+
 import "../_assets/styles/fonts.css"
 
 export const App = () => {

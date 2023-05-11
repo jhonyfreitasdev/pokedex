@@ -2,12 +2,13 @@ import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 
 import { getPokemons } from "../../services/poke-api"
+import { types } from "../../constants/types"
 
 import { Container, Card, Image, Description, Title, Type, ContainerButtons, Button, List, Item, Message } from "./styles"
 
 export const PokemonDetails = () => {
 
-    const [pokemon, setPokemon] = useState({ types: "" })
+    const [pokemon, setPokemon] = useState()
     const [list, setList] = useState()
     const [buttonActive, setButtonActive] = useState()
 
@@ -21,6 +22,7 @@ export const PokemonDetails = () => {
                 name: pokemonData.name,
                 image: pokemonData.sprites.versions['generation-v']['black-white'].animated.front_default,
                 types: pokemonData.types.map(item => item.type.name)
+
             }
             setPokemon(pokemon)
         }
@@ -76,60 +78,61 @@ export const PokemonDetails = () => {
     return (
         <Container pokemon={pokemon}>
             {
-                pokemon.types !== "" ?
-                    <>
-                        <Link to="/"> X </Link>
+                pokemon !== undefined ?
+                <>
+                    <Link to="/"> X </Link>
 
-                        <Card pokemon={pokemon}>
-                            <Image>
-                                <img src={pokemon.image} alt={`Imagem do ${pokemon.name}`} />
-                            </Image>
+                    <Card pokemon={pokemon}>
+                        <Image>
+                            <img src={pokemon.image} alt={`Imagem do ${pokemon.name}`} />
+                        </Image>
 
-                            <Description>
-                                <Title pokemon={pokemon}>{pokemon.name}</Title>
+                        <Description>
+                            <Title pokemon={pokemon}>{pokemon.name}</Title>
 
-                                <Type pokemon={pokemon}>
-                                    {
-                                        pokemon.types.map((type, index) => {
-                                            return (
-                                                <h2 key={index}>{type}</h2>
-                                            )
-                                        })
-                                    }
-                                </Type>
-                            </Description>
-                        </Card>
-
-                        <ContainerButtons>
-                            <Button pokemon={pokemon} type="button" status={buttonActive === "moves" ? true : false} onClick={showMoves}>
-                                Moves 
-                            </Button>
-
-                            <Button pokemon={pokemon} type="button" status={buttonActive === "abilities" ? true : false} onClick={showAbilities}> 
-                                Abilities 
-                            </Button>
-                        </ContainerButtons>
-
-                        <List pokemon={pokemon}>
-                            {
-                                list !== undefined ?
+                            <Type pokemon={pokemon}>
+                                {
+                                    pokemon.types.length === 2 ? 
                                     <>
-                                        {
-                                            list.map((item, index) => {
-                                                return (
-                                                    <Item pokemon={pokemon} key={index}>
-                                                        <h3>{item.name}</h3>
-                                                        <p>{item.description}</p>
-                                                    </Item>
-                                                )
-                                            })
-                                        }
+                                        <h2 style={{backgroundColor: types.pokemonTypesBackground[pokemon.types[0]]}}>{pokemon.types[0]}</h2>
+                                        <h2 style={{backgroundColor: types.pokemonTypesBackground[pokemon.types[1]]}}>{pokemon.types[1]}</h2>
                                     </>
-                                    : <Message> Selecione no botão a lista que deseja ver </Message>
-                            }
-                        </List>
-                    </>
-                    : ""
+                                    : <h2 style={{backgroundColor: types.pokemonTypesBackground[pokemon.types[0]]}}>{pokemon.types[0]}</h2>
+                                }
+                            </Type>
+                        </Description>
+                    </Card>
+
+                    <ContainerButtons>
+                        <Button pokemon={pokemon} type="button" status={buttonActive === "moves" ? true : false} onClick={showMoves}>
+                            Moves 
+                        </Button>
+
+                        <Button pokemon={pokemon} type="button" status={buttonActive === "abilities" ? true : false} onClick={showAbilities}> 
+                            Abilities 
+                        </Button>
+                    </ContainerButtons>
+
+                    <List pokemon={pokemon}>
+                        {
+                            list !== undefined ?
+                            <>
+                                {
+                                    list.map((item, index) => {
+                                        return (
+                                            <Item pokemon={pokemon} key={index}>
+                                                <h3>{item.name}</h3>
+                                                <p>{item.description}</p>
+                                            </Item>
+                                        )
+                                    })
+                                }
+                            </>
+                            : <Message> Selecione no botão a lista que deseja ver </Message>
+                        }
+                    </List>
+                </>
+                : ""
             }
         </Container>
     )
