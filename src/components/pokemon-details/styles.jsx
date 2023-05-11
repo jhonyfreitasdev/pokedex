@@ -65,7 +65,7 @@ export const Card = styled.div`
     }
 `
 
-export const Image = styled.div`
+export const ContainerImage = styled.div`
     width: 100%;
     margin: 15px 0;
 

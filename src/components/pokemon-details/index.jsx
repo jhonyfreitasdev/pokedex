@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom"
 import { getPokemons } from "../../services/poke-api"
 import { types } from "../../constants/types"
 
-import { Container, Card, Image, Description, Title, Type, ContainerButtons, Button, List, Item, Message } from "./styles"
+import { Container, Card, ContainerImage, Description, Title, Type, ContainerButtons, Button, List, Item, Message } from "./styles"
 
 export const PokemonDetails = () => {
 
@@ -83,9 +83,9 @@ export const PokemonDetails = () => {
                     <Link to="/"> X </Link>
 
                     <Card pokemon={pokemon}>
-                        <Image>
+                        <ContainerImage>
                             <img src={pokemon.image} alt={`Imagem do ${pokemon.name}`} />
-                        </Image>
+                        </ContainerImage>
 
                         <Description>
                             <Title pokemon={pokemon}>{pokemon.name}</Title>

@@ -36,17 +36,9 @@ export const Card = styled.li`
         padding: 3px;
         width: 100%;
     }
-    &:hover > h2{
-        color: ${props => {       
-        const pokemonType = [props.pokemon.types] 
-        const typeColor = props.theme.pokemonTypesBackground        
-        return typeColor[pokemonType] 
-        }}; 
-        text-shadow: 0 0 5px #000000;
-    }
 ` 
 
-export const Image = styled.div`
+export const ContainerImage = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;

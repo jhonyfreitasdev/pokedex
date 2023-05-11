@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 import { getPokemons } from "../../services/poke-api"
 
-import { List, Card, Image, Button } from "./styles"
+import { List, Card, ContainerImage, Button } from "./styles"
 
 export const PokemonList = () => {
 
@@ -51,9 +51,9 @@ export const PokemonList = () => {
                         return (
                             <Link to={`/pokemons/${pokemon.name}`} key={index}>
                                 <Card pokemon={pokemon}>
-                                    <Image> 
+                                    <ContainerImage> 
                                         <img src={pokemon.image} alt={`imagem do ${pokemon.name}`} />
-                                    </Image>
+                                    </ContainerImage>
                                     <h2> {pokemon.name} </h2>
                                 </Card>
                             </Link>
