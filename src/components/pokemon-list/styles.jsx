@@ -15,7 +15,7 @@ export const Card = styled.li`
     justify-content: space-between;
     align-items: center;
     background-color: ${props => {        
-        const pokemonType = [props.pokemon.types] 
+        const pokemonType = [props.pokemon.type] 
         const typeColor = props.theme.pokemonTypesBackground        
         return typeColor[pokemonType] 
     }};

@@ -6,66 +6,54 @@ import { List, Card, Image, Button } from "./styles"
 
 export const PokemonList = () => {
 
-    const [pokedex, setPokedex] = useState({
-        pokemons: []
-    })
-
     const [countLimit, setCountLimit] = useState(10)
+
+    const [pokedex, setPokedex] = useState([])
 
     useEffect(() => {
 
         const fetchData = async () => {
-            const listPokemonUrl = limit => { return `https://pokeapi.co/api/v2/pokemon/?limit=${limit}` };
-            const pokemonData = await getPokemons(listPokemonUrl(countLimit))
 
-            let pokemonName = []
-            pokemonData.results.forEach(item => {
-                pokemonName = [...pokemonName, item.name]
-            })
+            const pokemonsListUrl = `https://pokeapi.co/api/v2/pokemon/?limit=${countLimit}`;
+            const pokemonData = await getPokemons(pokemonsListUrl)
 
-            let pokemonList = []
-            pokemonName.forEach(item => {
-                const pokeDetailsUrl = pokemon => `https://pokeapi.co/api/v2/pokemon/${pokemon}`
+            const pokemonNameList = pokemonData.results.map(poke => poke.name)
 
-                const getPokemonDetails = async () => {
-                    const pokemonData = await getPokemons(pokeDetailsUrl(item))
+            const pokemonList = await Promise.all (pokemonNameList.map( name => {
+                const pokemonDataUrl = `https://pokeapi.co/api/v2/pokemon/${name}`
+                
+                const getPokemonData = async (url) => {
+                    const pokemonData = await getPokemons(url)
 
-                    pokemonList = [
-                        ...pokemonList,
-                        {
-                            image: pokemonData.sprites.versions['generation-v']['black-white'].animated.front_default,
-                            name: pokemonData.name,
-                            types: pokemonData.types[0].type.name
-                        }
-                    ]
+                    return {
+                        image: pokemonData.sprites.versions['generation-v']['black-white'].animated.front_default,
+                        name: pokemonData.name,
+                        type: pokemonData.types[0].type.name
+                    }
 
-                    setPokedex({
-                        pokemons: pokemonList
-                    })
                 }
 
-                getPokemonDetails()
-            })
+                return getPokemonData(pokemonDataUrl)
+            }))
+            
+            setPokedex(pokemonList)
         }
+
         fetchData()
     }, [countLimit])
-
-    const showMorePokemons = () => {
-        setCountLimit(countLimit + 10)
-    }
 
     return (
         <>
             <List>
                 {
-                    pokedex.pokemons.map((item, index) => {
+                    pokedex.map((pokemon, index) => {
                         return (
-                            <Link to={`/pokemons/${item.name}`} key={index}>
-                                <Card pokemon={item} data-testid="pokemon-card">
+                            <Link to={`/pokemons/${pokemon.name}`} key={index}>
+                                <Card pokemon={pokemon}>
                                     <Image> 
-                                        <img src={item.image} alt={`imagem do ${item.name}`} />
+                                        <img src={pokemon.image} alt={`imagem do ${pokemon.name}`} />
                                     </Image>
-                                    <h2> {item.name} </h2>
+                                    <h2> {pokemon.name} </h2>
                                 </Card>
                             </Link>
                         )
@@ -73,7 +61,7 @@ export const PokemonList = () => {
                 }    
             </List>
                 
-            <Button type="button" onClick={showMorePokemons}>Carregar mais Pokemon...</Button>
+            <Button type="button" onClick={() => setCountLimit(countLimit + 10)}>Carregar mais Pokemon...</Button>
         </>
     )
 }

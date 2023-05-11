@@ -11,18 +11,18 @@ export const PokemonDetails = () => {
     const [list, setList] = useState()
     const [buttonActive, setButtonActive] = useState()
 
-    const { id } = useParams()
-    const pokeDetailsUrl = `https://pokeapi.co/api/v2/pokemon/${id}`
+    const {name } = useParams()
+    const pokeDetailsUrl = `https://pokeapi.co/api/v2/pokemon/${name}`
 
     useEffect(() => {
         async function fetchData() {
             const pokemonData = await getPokemons(pokeDetailsUrl)
-            const details = {
+            const pokemon = {
                 name: pokemonData.name,
                 image: pokemonData.sprites.versions['generation-v']['black-white'].animated.front_default,
                 types: pokemonData.types.map(item => item.type.name)
             }
-            setPokemon(details)
+            setPokemon(pokemon)
         }
 
         fetchData()
@@ -33,25 +33,21 @@ export const PokemonDetails = () => {
         const pokemonData = await getPokemons(pokeDetailsUrl)
         const movesNameList = pokemonData.moves.map(item => item.move.name)
 
-        let movesList = []
-        movesNameList.forEach(item => {
-
+        const movesList = await Promise.all (movesNameList.map(move => {
             const getMoveDetails = async () => {
-                const moveData = await getPokemons(`https://pokeapi.co/api/v2/move/${item}`)
+                const moveData = await getPokemons(`https://pokeapi.co/api/v2/move/${move}`)
 
-                movesList = [
-                    ...movesList,
-                    {   
-                        name: moveData.name,
-                        description: moveData.flavor_text_entries[2].flavor_text,
-                        type: moveData.type.name
-                    }
-                ]
-
-                setList(movesList)
+                return {
+                    name: moveData.name,
+                    description: moveData.flavor_text_entries[2].flavor_text,
+                    type: moveData.type.name
+                }
             }
-            getMoveDetails()
-        })
+
+            return getMoveDetails()
+        }))
+
+        setList(movesList)
         setButtonActive("moves")
     }
 
@@ -59,24 +55,21 @@ export const PokemonDetails = () => {
         const pokemonData = await getPokemons(pokeDetailsUrl)
         const abilitiesNameList = pokemonData.abilities.map(item => item.ability.name)
 
-        let abilitiesList = []
-        abilitiesNameList.forEach(item => {
+        const abilityList = await Promise.all (abilitiesNameList.map(ability => {
 
             const getAbilityDetails = async () => {
-                const abilityData = await getPokemons(`https://pokeapi.co/api/v2/ability/${item}`)
+                const abilityData = await getPokemons(`https://pokeapi.co/api/v2/ability/${ability}`)
 
-                abilitiesList = [
-                    ...abilitiesList,
-                    {
-                        name: abilityData.name,
-                        description: abilityData.effect_entries[0].effect
-                    }
-                ]
-
-                setList(abilitiesList)
+                return {
+                    name: abilityData.name,
+                    description: abilityData.effect_entries[0].effect
+                }
             }
-            getAbilityDetails()
-        })
+
+            return getAbilityDetails()
+        }))
+        
+        setList(abilityList)
         setButtonActive("abilities")
     }
 
