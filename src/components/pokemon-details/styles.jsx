@@ -108,12 +108,14 @@ export const Type = styled.div`
     align-items: center;
     gap: 2px;
 
-    h2{
-        border-radius: 5px;
-        padding: 2px;
-     
-        @media ${device.laptop} {
-            font-size: 1.8rem;
+    img{
+        width: 33px;
+
+        @media ${device.mobileL} {
+            width: 29px;
+        }
+        @media ${device.mobileS} {
+            width: 25px;
         }
     }
 `

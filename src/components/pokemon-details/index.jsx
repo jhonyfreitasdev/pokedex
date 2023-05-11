@@ -94,10 +94,10 @@ export const PokemonDetails = () => {
                                 {
                                     pokemon.types.length === 2 ? 
                                     <>
-                                        <h2 style={{backgroundColor: types.pokemonTypesBackground[pokemon.types[0]]}}>{pokemon.types[0]}</h2>
-                                        <h2 style={{backgroundColor: types.pokemonTypesBackground[pokemon.types[1]]}}>{pokemon.types[1]}</h2>
+                                        <img src={types.pokemonImageBackground[pokemon.types[0]]} alt={pokemon.types[0]}/>
+                                        <img src={types.pokemonImageBackground[pokemon.types[1]]} alt={pokemon.types[1]}/>
                                     </>
-                                    : <h2 style={{backgroundColor: types.pokemonTypesBackground[pokemon.types[0]]}}>{pokemon.types[0]}</h2>
+                                    : <img src={types.pokemonImageBackground[pokemon.types[0]]} alt={pokemon.types[0]}/>
                                 }
                             </Type>
                         </Description>
