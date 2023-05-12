@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Pokédex
+Uma pokedex em forma de lista onde cada pokemon possui uma página única com suas habilidades e movimentos detalhados, trabalhado em um layout responsivo com botão que altera o tema e uma página dinâmica. 
+ 
+## 🔗 Acesso ao projeto
+<a href="https://pokedex-alpha-mauve.vercel.app">Clique aqui para ir para a página</a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[<img src="src/_assets/gifs/tela.gif">](https://pokedex-alpha-mauve.vercel.app)
 
-## Available Scripts
+## Descrição 
+- O projeto é renderizado inicialmente com 10 pokemons que são requisitados de uma API, ele possui um botão para alternar entre o tema light/dark e logo abaixo da lista possui um botão para adicionar mais pokemons, a atualização da lista sempre acrescente 10 pokemons a ela.
+- Cada pokemon possui um link que leva para a sua página individual, contendo seus tipos e com botões para você escolher se quer ver as suas habilidades ou seus movimentos que são renderizado em uma lista abaixo
+<br/>
 
-In the project directory, you can run:
+## Desafios
+- Durante o desenvolvimento do projeto eu tive que pensar muito nas requisições da API, pois ela é um pouco complexa, foi preciso trabalhar com os endpoints para chegar nas informações desejadas. Como eu utilizei a API várias vezes com endpoints diferentes eu deixei sua chamada o mais dinâmica possível, assim na sua utilização só era necessário trocar o link que ia ser passado para ela. 
+<br/>
 
-### `npm start`
+## 🛠 Skills
+<div style="display: inline_block"><br>
+  <img align="center" alt="React" height="30" width="40" src="src/_assets/icons/icon-react.png">
+  <img align="center" alt="Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+  <img align="center" alt="Styled" height="30" width="35" src="src/_assets/icons/icon-styled.png">
+  <img align="center" alt="Jest" height="30" width="30" src="src/_assets/icons/icon-jest.png">
+</div><br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- O projeto é uma Single Page Application feita com React.JS juntamente com JavaScript, utiliza o React Router Dom para fazer a navegação entre as páginas, possui o Context API para fazer a alteração do tema e é estilizado com o Component Styled.
+<br/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📤 Feedback
+Se interessou pelo meu trabalho ou tem algum feedback? <br/> 
+Entre em contato comigo:
+<br/>
+ 
+<p align="left"> 
+ <a href="https://www.linkedin.com/in/jhony-freitas/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin.svg" width="40" height="35" /></a>
+ <a href ="https://api.whatsapp.com/send?phone=5511948127577&text" target="_blank" rel="noreferrer"><img src="./src/_assets/icons/whatsapp.png" width="40" height="35" /></a>
+ <a href ="mailto:jhony00._@hotmail.com" target="_blank" rel="noreferrer"><img src="src/_assets/icons/email-icone.png" width="40" height="35" /></a>
+ <a href="https://discord.com/users/jhonyFreitas#1359" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/discord.svg" width="40" height="35" /></a> 
 
-### `npm test`
+ </p>
+<br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Passo a passo para rodar o projeto
 
-### `npm run build`
+### Para instalar os pacotes `npm install`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Para inicializar o projeto `npm start`
