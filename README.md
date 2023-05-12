@@ -2,9 +2,9 @@
 Uma pokedex em forma de lista onde cada pokemon possui uma página única com suas habilidades e movimentos detalhados, trabalhado em um layout responsivo com botão que altera o tema e uma página dinâmica. 
  
 ## 🔗 Acesso ao projeto
-<a href="https://pokedex.vercel.app/">Clique aqui para ir para a página</a>
+<a href="https://pokedex-alpha-mauve.vercel.app">Clique aqui para ir para a página</a>
 
-[<img src="src/_assets/gifs/tela.gif">](https://pokedex.vercel.app/)
+[<img src="src/_assets/gifs/tela.gif">](https://pokedex-alpha-mauve.vercel.app)
 
 ## 🛠 Skills
 <div style="display: inline_block"><br>
