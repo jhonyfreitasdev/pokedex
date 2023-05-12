@@ -8,10 +8,10 @@ Uma pokedex em forma de lista onde cada pokemon possui uma página única com su
 
 ## 🛠 Skills
 <div style="display: inline_block"><br>
-  <img align="center" alt="React" height="30" width="40" src="src/_assets/icons/react-icone.png">
+  <img align="center" alt="React" height="30" width="40" src="src/_assets/icons/icon-react.png">
   <img align="center" alt="Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-  <img align="center" alt="Styled" height="30" width="40" src="src/_assets/icons/icon-styled.png">
-  <img align="center" alt="Jest" height="30" width="40" src="src/_assets/icons/icon-jest.png">
+  <img align="center" alt="Styled" height="30" width="35" src="src/_assets/icons/icon-styled.png">
+  <img align="center" alt="Jest" height="30" width="30" src="src/_assets/icons/icon-jest.png">
 </div>
 <br/>
 
