@@ -13,16 +13,16 @@ export const Main = styled.main`
     box-shadow: 0 5px 10px 2px #00000020;
     border-radius: 0 0 5px 5px ;
     width: 78%;
-    max-height: 87%;
+    max-height: 85%;
     margin: 0 auto;
-    padding: 10px 30px 10px 30px;
+    padding: 30px;
 
     @media ${device.tabletS} {
         padding: 10px 10px 5px 10px;
     }
     @media ${device.mobileL} {
         width: 90%;
-        max-height: 84%;
+        max-height: 80%;
     }
 
     &::-webkit-scrollbar{
