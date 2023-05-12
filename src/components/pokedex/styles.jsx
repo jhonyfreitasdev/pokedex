@@ -13,7 +13,7 @@ export const Main = styled.main`
     box-shadow: 0 5px 10px 2px #00000020;
     border-radius: 0 0 5px 5px ;
     width: 78%;
-    height: 88%;
+    max-height: 87%;
     margin: 0 auto;
     padding: 10px 30px 10px 30px;
 

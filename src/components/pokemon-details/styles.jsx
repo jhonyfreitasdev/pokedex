@@ -163,7 +163,7 @@ export const List = styled.ul`
     box-shadow: 0 0 5px 4px #00000045;
     border: 1px solid #00000035;
     width: 70%;
-    min-height: 35%;
+    min-height: 200px;
 
     @media ${device.laptop} {
         width: 80%;
