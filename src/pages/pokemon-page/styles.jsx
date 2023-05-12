@@ -8,5 +8,5 @@ export const Container = styled.div`
     transition: .6s ease-in-out;
     background-size: cover;
     height: 100vh;
-    padding-top: 3vh;
+    padding-top: 5vh;
 `

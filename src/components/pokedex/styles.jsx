@@ -22,6 +22,7 @@ export const Main = styled.main`
     }
     @media ${device.mobileL} {
         width: 90%;
+        max-height: 84%;
     }
 
     &::-webkit-scrollbar{
