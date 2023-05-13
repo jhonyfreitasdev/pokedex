@@ -40,14 +40,11 @@ export const PokemonDetails = () => {
                 const moveData = await getPokemons(`https://pokeapi.co/api/v2/move/${move}`)
                 const filteredDescription = moveData.flavor_text_entries.find(obj => obj.language.name === 'en')
                 
-                let object
                 if (filteredDescription === undefined) {
-                    object = { name: moveData.name, description: 'No description'}
+                    return { name: moveData.name, description: 'No description'}
                 }else{
-                    object = { name: moveData.name, description: filteredDescription.flavor_text }
+                    return { name: moveData.name, description: filteredDescription.flavor_text }
                 }
-
-                return object
             }
 
             return getMoveDetails()
