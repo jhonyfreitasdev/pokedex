@@ -62,10 +62,11 @@ export const PokemonDetails = () => {
 
             const getAbilityDetails = async () => {
                 const abilityData = await getPokemons(`https://pokeapi.co/api/v2/ability/${ability}`)
+                const filteredDescription = abilityData.effect_entries.find(obj => obj.language.name === 'en')
 
                 return {
                     name: abilityData.name,
-                    description: abilityData.effect_entries[0].effect
+                    description: filteredDescription.effect
                 }
             }
 
