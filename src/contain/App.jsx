@@ -1,4 +1,5 @@
 import { BackgroundProvider } from "../context/theme-context";
+import { TypeFilterProvider } from "../context/filter-context";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { AppRoutes } from "./routes";
 
@@ -9,10 +10,12 @@ import "../_assets/styles/fonts.css"
 export const App = () => {
 	return (
 		<BackgroundProvider>
-			<ThemeProvider theme={types}>
-				<GlobalStyle />
-				<AppRoutes />
-			</ThemeProvider>
+			<TypeFilterProvider>
+				<ThemeProvider theme={types}>
+					<GlobalStyle />
+					<AppRoutes />
+				</ThemeProvider>
+			</TypeFilterProvider>
 		</BackgroundProvider>
 	);
 }
