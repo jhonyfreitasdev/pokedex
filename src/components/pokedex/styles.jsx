@@ -15,7 +15,7 @@ export const Main = styled.main`
     width: 78%;
     max-height: 85%;
     margin: 0 auto;
-    padding: 30px;
+    padding: 10px;
 
     @media ${device.tabletS} {
         padding: 10px 10px 5px 10px;
