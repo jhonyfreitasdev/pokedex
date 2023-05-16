@@ -18,18 +18,23 @@ export const PokemonDetails = () => {
     useEffect(() => {
         async function fetchData() {
             const pokemonData = await getPokemons(pokeDetailsUrl)
-            const pokemon = {
-                name: pokemonData.name,
-                image: pokemonData.sprites.versions['generation-v']['black-white'].animated.front_default,
-                types: pokemonData.types.map(item => item.type.name)
-
+            if (pokemonData.sprites.versions['generation-v']['black-white'].animated.front_default !== null) {
+                setPokemon ({
+                    name: pokemonData.name,
+                    image: pokemonData.sprites.versions['generation-v']['black-white'].animated.front_default,
+                    types: pokemonData.types.map(item => item.type.name)
+                })
+            } else {
+                setPokemon ({
+                    name: pokemonData.name,
+                    image: pokemonData.sprites.front_default,
+                    types: pokemonData.types.map(item => item.type.name)
+                })
             }
-            setPokemon(pokemon)
         }
 
         fetchData()
     }, [pokeDetailsUrl])
-
 
     const showMoves = async () => {
         const pokemonData = await getPokemons(pokeDetailsUrl)
