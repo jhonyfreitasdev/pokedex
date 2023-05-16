@@ -66,7 +66,9 @@ export const Card = styled.div`
 `
 
 export const ContainerImage = styled.div`
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    width: 65%;
     margin: 15px 0;
 
     img{
