@@ -20,6 +20,7 @@ export const Container = styled.div`
     padding: 15px;
     width: 70%;
     height: 100%;
+    overflow-x: hidden;
 
     @media ${device.laptop} {
         width: 90%;
@@ -31,8 +32,8 @@ export const Container = styled.div`
 
     a{
         position: absolute;
-        right: -20px;
-        top: -20px;
+        right: 0;
+        top: 0;
         background-color: #d6d4d4;
         font-family: 'Patrick Hand SC', cursive;
         font-weight: bolder;
@@ -45,6 +46,8 @@ export const Container = styled.div`
 `
 
 export const Card = styled.div`
+    display: flex;
+    flex-direction: column;
     background-color: #00000033;
     text-align: center;
     border-radius: 15px 15px 8px 8px;
@@ -66,10 +69,8 @@ export const Card = styled.div`
 `
 
 export const ContainerImage = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 65%;
-    margin: 15px 0;
+    align-self: center;
+    width: 100%;
 
     img{
         min-width: 35%;
