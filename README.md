@@ -1,5 +1,5 @@
 # Pokédex
-Uma pokedex em forma de lista onde cada pokemon possui uma página única com suas habilidades e movimentos detalhados, trabalhado em um layout responsivo com botão que altera o tema e uma página dinâmica. 
+Uma pokedex em forma de lista onde cada pokemon possui uma página única com suas habilidades e movimentos detalhados, criada em um layout responsivo com botão que altera o tema e um filtro para os tipos dos pokemons. 
  
 ## 🔗 Acesso ao projeto
 <a href="https://pokedex-alpha-mauve.vercel.app">Clique aqui para ir para a página</a>
