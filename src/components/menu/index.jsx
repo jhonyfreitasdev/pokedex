@@ -1,4 +1,4 @@
-import light from "../../_assets/images/light-pokedex.gif"
+import light from "../../assets/images/light-pokedex.gif"
 import { ToggleButton } from "../../components/toggle-button";
 import { TypeSelector } from "../type-selector";
 

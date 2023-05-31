@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
-import dayBackground from "../_assets/images/day-background.jpg"
-import nightBackground from "../_assets/images/night-background.jpg"
+import dayBackground from "../assets/images/day-background.jpg"
+import nightBackground from "../assets/images/night-background.jpg"
 
 export const themes = {
     light: {

@@ -1,11 +1,11 @@
-import { BackgroundProvider } from "../context/theme-context";
-import { TypeFilterProvider } from "../context/filter-context";
+import { BackgroundProvider } from "./context/theme-context";
+import { TypeFilterProvider } from "./context/filter-context";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { AppRoutes } from "./routes";
+import { AppRoutes } from "./routes/route";
 
-import { types } from "../constants/types"
+import { types } from "./constants/types"
 
-import "../_assets/styles/fonts.css"
+import "./assets/styles/fonts.css"
 
 export const App = () => {
 	return (
