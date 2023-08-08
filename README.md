@@ -4,7 +4,7 @@ Uma pokedex em forma de lista onde cada pokemon possui uma página única com su
 ## 🔗 Acesso ao projeto
 <a href="https://pokedex-alpha-mauve.vercel.app">Clique aqui para ir para a página</a>
 
-[<img src="src/_assets/gifs/tela.gif">](https://pokedex-alpha-mauve.vercel.app)
+[<img src="src/assets/gifs/tela.gif">](https://pokedex-alpha-mauve.vercel.app)
 
 ## Descrição 
 - O projeto é renderizado inicialmente com 10 pokemons que são requisitados de uma API, ele possui um botão para alternar entre o tema light/dark e logo abaixo da lista possui um botão para adicionar mais pokemons, a atualização da lista sempre acrescente 10 pokemons a ela.
